@@ -10,12 +10,12 @@
 			allowMultiple: false,
 			// Turn on output, if on use the viewOutputDIV
 			viewOutput: false,
-			viewOutputWidth: 100, // Image Width
-			viewOutputHeight: 100, // Image Height
+			viewOutputWidth: 150, // Image Width
+			viewOutputHeight: 150, // Image Height
 			viewOutputDIV: '#multiple_selection', // DIV that shows the outputed images.
 			viewOutputHiddenField: 'image[]', // the name of the hidden field to submit
 			// Allowed types
-			library: true // Not used yet
+			library: { type: 'image' } // Not used yet
 		};
 		
 		var option = $.extend( defaults, options );
@@ -34,6 +34,7 @@
 				// Create the Media Uploader frame
 		        mediauploader = wp.media.frames.file_frame = wp.media({
 		            title: option.title,
+		            library: option.library,
 		            button: {
 		                text: option.button_text,
 		                close: true
@@ -60,10 +61,12 @@
 							var width = option.viewOutputWidth;
 							var height = option.viewOutputHeight;
 							var hiddenField = option.viewOutputHiddenField;
-							var append = '<div style="float: left; width: 120px; height: 120px;">'
-							+ '<img src="'+attachmentURL+'" style=" height: '+height+'px; width: '+width+'px;" />'
-							+ '<input type="hidden" name="'+hiddenField+'" value="'+attachmentURL+'" />'
-							+ '</div>';
+							if( attachment.type == "image" ) {
+								var append = '<div style="float: left; width: 160px; height: 160px;">'
+								+ '<img src="'+attachmentURL+'" style=" height: '+height+'px; width: '+width+'px;" />'
+								+ '<input type="hidden" name="'+hiddenField+'" value="'+attachmentURL+'" />'
+								+ '</div>';
+							}
 							$( option.viewOutputDIV ).append( append );
 						}
 					}); 
