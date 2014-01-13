@@ -5,28 +5,30 @@ Creates an easy way to insert the media uploader into your plugins
 
 Default Options
 ===============
-var defaults = {<br />
-<div style="margin-left: 15px;">
-	// Text<br />
-	title: 'Choose Image:',<br />
-	button_text: 'Choose Image',<br />
-	// URL Field to insert image url into<br />
-	urlField: '#upload_image',<br />
-	// Choose to allow multiple<br />
-	allowMultiple: false,<br />
-	// Turn on output, if on use the viewOutputDIV<br />
-	viewOutput: false,<br />
-	viewOutputWidth: 100,<br />
-	viewOutputHeight: 100,<br />
-	viewOutputDIV: '#multiple_selection',<br />
-	viewOutputHiddenField: 'image[]',<br />
-	// Allowed types<br />
-	library: true<br />
-</div>
+```php
+var defaults = {
+	// Text
+	title: 'Choose Image:',
+	button_text: 'Choose Image',
+	// URL Field to insert image url into
+	urlField: '#upload_image',
+	// Choose to allow multiple
+	allowMultiple: false,
+	// Turn on output, if on use the viewOutputDIV
+	viewOutput: false,
+	viewOutputWidth: 100,
+	viewOutputHeight: 100,
+	viewOutputDIV: '#multiple_selection',
+	viewOutputHiddenField: 'image[]',
+	// Allowed types
+	library: true
 };
+```
 		
 How to use
 ==========
 The first step is to include this file inside your plugin or theme.
 The second step is to call the function by using
 $( 'UPLOAD BUTTON ID' ).mediaUploader();
+
+
