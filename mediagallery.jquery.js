@@ -63,8 +63,14 @@
 							var hiddenField = option.viewOutputHiddenField;
 							if( attachment.type == "image" ) {
 								var append = '<div style="float: left; width: 160px; height: 160px;">'
-								+ '<img src="'+attachmentURL+'" style=" height: '+height+'px; width: '+width+'px;" />'
-								+ '<input type="hidden" name="'+hiddenField+'" value="'+attachmentURL+'" />'
+									+ '<img src="'+attachmentURL+'" style=" height: '+height+'px; width: '+width+'px;" />'
+									+ '<input type="hidden" name="'+hiddenField+'" value="'+attachmentURL+'" />'
+								+ '</div>';
+							} else {
+								var append = '<div style="clear: both;">'
+									+ '<strong>File Type:</strong> '+attachment.type+'<br />'
+									+ '<strong>File URL:</strong> '+attachmentURL+'<br />'
+									+ '<input type="hidden" name="'+hiddenField+'" value="'+attachmentURL+'" />'
 								+ '</div>';
 							}
 							$( option.viewOutputDIV ).append( append );
