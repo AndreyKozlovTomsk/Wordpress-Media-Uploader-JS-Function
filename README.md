@@ -1,7 +1,6 @@
 Wordpress-Media-Uploader-JS-Function
 ====================================
-
-Creates an easy way to insert the media uploader into your plugins
+An easy way to use the new media gallery that was introduced in WP 3.5.
 
 Default Options
 ===============
