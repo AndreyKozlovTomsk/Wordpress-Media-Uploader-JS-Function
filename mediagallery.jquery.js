@@ -10,29 +10,29 @@
 			allowMultiple: false,
 			// Turn on output, if on use the viewOutputDIV
 			viewOutput: false,
-			viewOutputWidth: 100,
-			viewOutputHeight: 100,
-			viewOutputDIV: '#multiple_selection',
-			viewOutputHiddenField: 'image[]',
+			viewOutputWidth: 100, // Image Width
+			viewOutputHeight: 100, // Image Height
+			viewOutputDIV: '#multiple_selection', // DIV that shows the outputed images.
+			viewOutputHiddenField: 'image[]', // the name of the hidden field to submit
 			// Allowed types
-			library: true
+			library: true // Not used yet
 		};
 		
 		var option = $.extend( defaults, options );
 		
 		return this.each( function() {
-			var custom_uploader;
+			var mediauploader;
 			$( this ).click( function( e ) {
 		        e.preventDefault();
 		 
-		        //If the uploader object has already been created, reopen the dialog
-		        if( custom_uploader ) {
-		            custom_uploader.open();
+				// If the Media Uploader frame is already created, open it.
+		        if( mediauploader ) {
+		            mediauploader.open();
 		            return;
 		        }
-		 
-		        //Extend the wp.media object
-		        custom_uploader = wp.media.frames.file_frame = wp.media({
+				
+				// Create the Media Uploader frame
+		        mediauploader = wp.media.frames.file_frame = wp.media({
 		            title: option.title,
 		            button: {
 		                text: option.button_text,
@@ -41,9 +41,9 @@
 		          multiple: option.allowMultiple
 		        });
 		 
-		        //When a file is selected, grab the URL and set it as the text field's value
-		        custom_uploader.on( 'select', function() {
-		            selection = custom_uploader.state().get( 'selection' );
+				// Grabs the selected files, if there are any, and displays them in the right order
+		        mediauploader.on( 'select', function() {
+		            selection = mediauploader.state().get( 'selection' );
 		            
 					selection.map( function( attachment ) {
 						attachment = attachment.toJSON();
@@ -70,7 +70,7 @@
 		        });
 		 
 		        //Open the uploader dialog
-		        custom_uploader.open();
+		        mediauploader.open();
 		 
 		    });
 		});
