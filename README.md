@@ -6,7 +6,7 @@ Creates an easy way to insert the media uploader into your plugins
 Default Options
 ===============
 var defaults = {<br />
-	// Text<br />
+	\t// Text<br />
 	title: 'Choose Image:',<br />
 	button_text: 'Choose Image',<br />
 	// URL Field to insert image url into<br />
