@@ -5,7 +5,7 @@ Creates an easy way to insert the media uploader into your plugins
 
 Default Options
 ===============
-```php
+```javascript
 var defaults = {
 	// Text
 	title: 'Choose Image:',
@@ -27,8 +27,10 @@ var defaults = {
 		
 How to use
 ==========
-The first step is to include this file inside your plugin or theme.
-The second step is to call the function by using
+The first step is to include this file inside your plugin or theme.<br />
+The second step is to call the function by using<br />
+```javascript
 $( 'UPLOAD BUTTON ID' ).mediaUploader();
+```
 
 
